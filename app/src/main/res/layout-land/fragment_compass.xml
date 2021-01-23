@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".fragments.CompassFragment">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.log.compass.viewmodel.ViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true">
+
+        <TextView
+            android:id="@+id/location_text"
+            distance="@{model.distance}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/palanquin"
+            android:gravity="center"
+            android:textColor="@color/dark_blue"
+            android:textSize="23sp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toTopOf="@+id/setDestination"
+            app:layout_constraintEnd_toEndOf="@+id/setDestination"
+            app:layout_constraintStart_toStartOf="@+id/setDestination"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/image_innerCompass"
+            rotate="@{model.destinationDegree}"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="64dp"
+            android:rotation="-90"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_navigator"
+            app:layout_constraintBottom_toBottomOf="@id/image_outerCompass"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="@id/image_outerCompass"
+            app:layout_constraintStart_toStartOf="@id/image_outerCompass"
+            app:layout_constraintTop_toTopOf="@id/image_outerCompass"
+            android:contentDescription="@string/image" />
+
+        <ImageView
+            android:id="@+id/image_outerCompass"
+            rotate="@{model.currentDegree}"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:rotation="-90"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_compass_outer"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@+id/setDestination"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/image" />
+
+        <TextView
+            android:id="@+id/degree_text"
+            degree="@{model.currentDegree[0]}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/palanquin"
+            android:gravity="center"
+            android:textColor="@color/dark_blue"
+            android:textSize="36sp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@+id/image_innerCompass"
+            app:layout_constraintEnd_toEndOf="@+id/image_innerCompass"
+            app:layout_constraintStart_toStartOf="@+id/image_innerCompass"
+            app:layout_constraintTop_toTopOf="@+id/image_innerCompass" />
+
+        <Button
+            android:id="@+id/setDestination"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:backgroundTint="@color/android_green_soft"
+            android:elevation="8dp"
+            android:fontFamily="@font/palanquin"
+            android:text="@string/set_destination"
+            android:textColor="@color/dark_blue"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/image_outerCompass"
+            app:layout_constraintTop_toTopOf="@+id/location_text" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

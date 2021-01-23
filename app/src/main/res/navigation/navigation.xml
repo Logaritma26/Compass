@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/compassFragment">
+
+    <fragment
+        android:id="@+id/compassFragment"
+        android:name="com.log.compass.fragments.CompassFragment"
+        android:label="fragment_compass"
+        tools:layout="@layout/fragment_compass" >
+        <action
+            android:id="@+id/action_compassFragment_to_setDestination"
+            app:destination="@id/setDestination"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/setDestination"
+        android:name="com.log.compass.fragments.SetDestination"
+        android:label="fragment_set_destination"
+        tools:layout="@layout/fragment_set_destination" >
+    </fragment>
+
+</navigation>

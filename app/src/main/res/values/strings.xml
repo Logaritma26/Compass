@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Compass</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="set_destination">Set Destination</string>
+    <string name="image">Background Image</string>
+    <string name="set_latitude">Set Latitude</string>
+    <string name="set_longitude">Set Longitude</string>
+    <string name="set">Set</string>
+    <string name="set_your_destination_coordinates">Set Your Destination Coordinates</string>
+</resources>
